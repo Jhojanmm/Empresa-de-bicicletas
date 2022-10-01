@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Load } from "./services/stations";
 import imagenLogo from "./assets/planeta.png";
-import { Heading } from '@chakra-ui/react'
-
+import { Heading, Box, Image,Flex, Center, Text, Spacer, Tag, Button} from '@chakra-ui/react';
 
 export function App() {
   const [stations, setStations] = useState([]);
@@ -14,19 +13,38 @@ export function App() {
 
   return (
     <>
-    <img src={imagenLogo} alt="BikeLogo" />
-      <Heading as="h1" size="lg">Bikes</Heading>
-      <ul>
+    
+    
+   <Center> <Image m={4} src={imagenLogo} alt="BikeLogo" width={200}/> </Center> 
+      <Heading as="h1" size="4xl">Bikes</Heading>
+
+      <section>
         
           {stations.map((stations) => (
 
-            <li key={stations.id}>
-              {stations.id}
-            </li>
+            <Box key={stations.id} bg="yellow.100" p={10} m={5} borderRadius={20}>
+              <Flex>
+                <Text fontSize="2xl">
+                  City <strong>{stations.location.city}</strong> -
+                </Text>
+                <Tag height={45} colorScheme="red" >
+                  {stations.location.country}
+                </Tag>
+                <br />
+                <Spacer />
+                <Button p={10} color="green.200" >
+                  Consultar
+                </Button>
+              </Flex>
+              {stations.id} <br />
+              {stations.name} <br />
+              
+            </Box>
+            
             ))}
         
 
-      </ul>
+      </section>
       
 
     </>
