@@ -80,7 +80,7 @@ const Network = () => {
                                     <Spacer />
                                     <br />
                                 </Flex>
-                                <strong><Text fontSize={10} color="grey">{station.timestamp}</Text></strong>
+                                <strong><Text fontSize={10} color="grey">{(station.timestamp).slice(0,-17)}</Text></strong>
                             </Box>
                         ) : (
                             <Flex>
